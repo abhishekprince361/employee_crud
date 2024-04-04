@@ -16,8 +16,8 @@ import java.sql.Date;
 @Table(name = "employee")
 public class Employee {
     @Id
-//    @Column
-    @GeneratedValue
+//  @Column
+//  @GeneratedValue
     private int empId;
     private String empName;
     private int empAge;
