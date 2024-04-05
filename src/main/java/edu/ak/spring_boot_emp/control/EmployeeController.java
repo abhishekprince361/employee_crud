@@ -9,12 +9,13 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/emp")
 public class EmployeeController {
 
     @Autowired
     EmployeeRepository empRepo;
 
-    @PostMapping("/emp")
+    @PostMapping()
     public String addEmp(@RequestBody Employee emp){
         empRepo.save(emp);
         return "Record Inserted";
@@ -25,17 +26,17 @@ public class EmployeeController {
         return "All Records Inserted";
     }
 
-    @GetMapping("/emp/{empId}")
+    @GetMapping("/{empId}")
     public Employee getEmpById(@PathVariable int empId){
         Optional<Employee> tempEmp = empRepo.findById(empId);
         return tempEmp.orElse(null);
     }
-    @GetMapping("/emp/name/{name}")
+    @GetMapping("/name/{name}")
     public List<Employee> getByName(@PathVariable String name){
         return empRepo.findByEmpName(name);
     }
 
-    @GetMapping("/emp/salary")
+    @GetMapping("/salary")
     public int maxSalary(){
         return empRepo.findMaxSalary();
     }
@@ -45,7 +46,7 @@ public class EmployeeController {
         return empRepo.findAll();
     }
 
-    @DeleteMapping("/emp/{empId}")
+    @DeleteMapping("/{empId}")
     public String deleteEmp(@PathVariable int empId){
         empRepo.deleteById(empId);
         return "Deleted";
@@ -56,7 +57,7 @@ public class EmployeeController {
         empRepo.deleteAll();
         return "All Records Deleted";
     }
-    @PutMapping("/emp")
+    @PutMapping()
     public String updateEmp(@RequestBody Employee emp){
         empRepo.save(emp);
         return "Updated";
