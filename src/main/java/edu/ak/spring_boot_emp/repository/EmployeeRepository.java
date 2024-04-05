@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
-    public List<Employee> findByEmpName(String name);
+    List<Employee> findByEmpName(String name);
 
     @Query("select max(e.empSalary) from Employee e")
     int findMaxSalary();

@@ -15,9 +15,10 @@ import java.sql.Date;
 @Entity
 @Table(name = "employee")
 public class Employee {
+
+//  @Column
+//  @GeneratedValue
     @Id
-//    @Column
-//    @GeneratedValue
     private int empId;
     private String empName;
     private int empAge;
@@ -71,7 +72,7 @@ public class Employee {
     public String toString() {
         return "Employee{" +
                 "empId=" + empId +
-                ", empName='" + empName + '\'' +
+                ", empName='" + empName +
                 ", empAge=" + empAge +
                 ", empSalary=" + empSalary +
                 ", dob=" + dob +
